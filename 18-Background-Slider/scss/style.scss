@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+$arrowpos: calc(15vw - 7rem);
+
+@mixin d-flex($justify, $align, $direction) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: $justify;
+    -ms-flex-pack: $justify;
+    justify-content: $justify;
+    -webkit-box-align: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+
+@mixin e11 {
+
+    @media all and (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
+        @content;
+    }
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.hide {
+    opacity: 0;
+}
+
+body {
+    font: {
+        family: 'Roboto',
+            sans-serif;
+        size: 1.6rem;
+    }
+
+    height: 100vh;
+    margin:0;
+
+    @include d-flex(center, center, column);
+
+    background: {
+        position: center;
+        size: cover;
+    }
+
+    -webkit-transition: .4s ease;
+    transition: .4s ease;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(black, .7);
+        z-index: -1
+    }
+}
+
+.slider-container {
+    -webkit-box-shadow: 0 .3rem;
+    box-shadow: 0 .3rem .6rem rgba(black, .16),
+        0 .3rem .6rem rgba(black, .23);
+    height: 70vh;
+    width: 70vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    opacity: 0;
+
+    background: {
+        position: center center;
+        size: cover;
+    }
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: .4s ease;
+    transition: .4s ease;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.arrow {
+    position: fixed;
+    background-color: transparent;
+    padding: 2rem;
+
+    font: {
+        size: 3rem;
+    }
+
+    -webkit-transform: translateY(-50%);
+
+    transform: translateY(-50%);
+    top: 50%;
+    border: .2rem solid orange;
+    z-index: 100;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.left-arrow {
+    left: $arrowpos;
+}
+
+.right-arrow {
+    right: $arrowpos;
+}

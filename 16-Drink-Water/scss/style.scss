@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+$border-color: #144fc6;
+$fill-color: #6ab3f8;
+
+@mixin d-flex($justify, $align, $direction) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: $justify;
+    -ms-flex-pack: $justify;
+    justify-content: $justify;
+    -webkit-box-align: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+@mixin transition {
+    -webkit-transition: .3s ease;
+    transition: .3s ease;
+}
+
+@mixin e11 {
+
+    @media all and (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
+        @content;
+    }
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.hide {
+    opacity: 0;
+}
+
+body {
+    background-color: #3494e4;
+    color: white;
+
+    font: {
+        family: 'Montserrat',
+            sans-serif;
+        size: 1.6rem;
+    }
+
+    @include d-flex(null, center, column);
+    margin-bottom: 4rem;
+    -webkit-transition: opacity .5s .3s;
+    transition: opacity .5s .3s;
+}
+
+h1 {
+    margin: 1rem 0 0;
+}
+
+h3 {
+    font-weight: 400;
+    margin: 1rem 0;
+}
+
+.cup {
+    background-color: #fff;
+    border: .4rem solid $border-color;
+    color: $border-color;
+    border-radius: 0 0 4rem 4rem;
+    height: 33rem;
+    width: 15rem;
+    margin: 3rem 0;
+    @include d-flex(null, null, column);
+    overflow: hidden;
+
+    &-small {
+        width: 5rem;
+        height: 9.5rem;
+        border-radius: 0 0 1.5rem 1.5rem;
+        background-color: rgba(255, 255, 255, .9);
+        cursor: pointer;
+        font-size: 1.4rem;
+        @include d-flex(center, center, null);
+        text-align: center;
+        margin: .5rem;
+        @include transition;
+
+        &.full {
+            background-color: $fill-color;
+            color: #fff;
+        }
+
+        @include e11 {
+            display: inline-block;
+            position: relative;
+
+            span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    &s {
+        @include d-flex(center, center, null);
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        width: 28rem;
+    }
+}
+
+.remained {
+    @include d-flex(center, center, column);
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    @include transition;
+
+    span {
+        font: {
+            size: 2rem;
+            weight: bold;
+        }
+    }
+
+    small {
+        font-size: 1.2rem;
+    }
+}
+
+.percentage {
+    background-color: $fill-color;
+
+    font: {
+        size: 3rem;
+        weight: bold;
+    }
+
+    height: 0;
+    @include d-flex(center, center, null);
+    @include transition;
+}
+
+.text {
+    text-align: center;
+    margin: 0 0 5rem;
+}

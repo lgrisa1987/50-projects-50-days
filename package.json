@@ -1,0 +1,23 @@
+{
+  "name": "50-projects-50-days",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel ./31-Password-Generator/src -d ./31-Password-Generator/dist --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
+    "@babel/preset-env": "^7.12.11",
+    "@types/core-js": "^2.5.4"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "core-js": "^3.8.3"
+  }
+}

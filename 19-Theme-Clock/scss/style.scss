@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@1,300&display=swap');
+
+$primary-color: #000;
+$secondary-color: #fff;
+$tertiary-color: #e74c3c;
+
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+@mixin d-flex($display, $justify, $align, $direction) {
+    display: $display;
+    -webkit-box-pack: $justify;
+    -ms-flex-pack: $justify;
+    justify-content: $justify;
+    -webkit-box-align: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+@mixin center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+}
+
+
+html {
+    font-size: 62.5%;
+    -webkit-transition: all .5s ease-in;
+    transition: all .5s ease-in;
+
+    &.dark {
+        $primary-color: #fff;
+        $secondary-color: #000;
+        background-color: $secondary-color;
+        color: $primary-color;
+
+        .toggle {
+            background-color: $primary-color;
+            color: $secondary-color;
+        }
+
+        .clock {
+
+            &__needle--hour,
+            &__center-point::after {
+                background-color: $primary-color;
+            }
+
+            &__needle--second {
+                background-color: $tertiary-color;
+            }
+        }
+
+
+        .date__circle {
+            background-color: $primary-color;
+            color: $secondary-color;
+        }
+    }
+}
+
+.hide {
+    opacity: 0;
+}
+
+body {
+    font: {
+        family: 'Mulish',
+            sans-serif;
+        size: 1.6rem;
+    }
+
+    height: 100vh;
+    margin:0;
+
+    @include d-flex(flex, center, center, null);
+    -webkit-transition: .4s ease;
+    transition: .4s ease;
+}
+
+.toggle {
+    cursor: pointer;
+    background-color: $primary-color;
+    color: $secondary-color;
+    border: none;
+    border-radius: .4rem;
+    padding: .8rem 1.2rem;
+    position: absolute;
+    top: 10rem;
+    outline: none;
+}
+
+.clock {
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+
+    &__container {
+        @include d-flex(flex, space-between, center, column);
+    }
+
+    &__needle {
+        background-color: $primary-color;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 6.5rem;
+        width: .3rem;
+        -webkit-transform-origin: bottom center;
+        transform-origin: bottom center;
+
+        &--hour {
+            -webkit-transform: translate(-50%, -100%);
+            transform: translate(-50%, -100%);
+        }
+
+        &--minute {
+            @extend .clock__needle--hour;
+            height: 10rem;
+        }
+
+        &--second {
+            @extend .clock__needle--minute;
+            height: 10rem;
+            background-color: $tertiary-color;
+        }
+    }
+
+    &__center-point {
+        background-color: $tertiary-color;
+        width: 1rem;
+        height: 1rem;
+        @include center;
+
+        &::after {
+            content: '';
+            background-color: $primary-color;
+            width: .5rem;
+            height: .5rem;
+            @include center;
+        }
+    }
+}
+
+.time {
+    font-size: 6rem;
+}
+
+.date {
+    color: #aaa;
+    font-size: 1.4rem;
+    letter-spacing: .03rem;
+    text-transform: uppercase;
+
+    &__circle {
+        background-color: $primary-color;
+        color: $secondary-color;
+        border-radius: 50%;
+        height: 1.8rem;
+        width: 1.8rem;
+        @include d-flex(inline-flex, center, center, null);
+        line-height: 1;
+        -webkit-transition: all .5s ease-in;
+        transition: all .5s ease-in;
+        font-size: 1.2rem;
+    }
+}

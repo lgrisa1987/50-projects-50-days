@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+@mixin d-flex($display, $justify, $align, $direction) {
+    display: $display;
+    -webkit-box-pack: $justify;
+    -ms-flex-pack: $justify;
+    justify-content: $justify;
+    -webkit-box-align: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.hide {
+    opacity: 0;
+}
+
+body {
+    font: {
+        family: 'Roboto',
+            sans-serif;
+        size: 1.6rem;
+    }
+
+    height: 100vh;
+    margin:0;
+    background-color: #f5f5f5;
+    @include d-flex(flex, center, center, column);
+}
+
+canvas{
+    border: .2em solid steelblue;
+}
+
+.toolbox{
+    background-color: steelblue;
+    border: .1rem solid slateblue;
+    @include d-flex(flex,null,null,null);
+    width: 80.4rem;
+    padding: 1rem;
+    *{
+        background-color: white;
+        border: none;
+        @include d-flex(inline-flex,center,center,null);
+        font-size: 2.4rem;
+        height: 5rem;
+        width: 5rem;
+        margin: .4rem;
+        padding: .4rem;
+        cursor: pointer;
+        &:last-child{
+            margin-left: auto;
+        }
+    }
+}
+#clear{
+    font-size: 4rem;
+}

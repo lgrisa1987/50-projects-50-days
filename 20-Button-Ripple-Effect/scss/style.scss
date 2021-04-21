@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+@mixin d-flex($display, $justify, $align, $direction) {
+    display: $display;
+    -webkit-box-pack: $justify;
+    -ms-flex-pack: $justify;
+    justify-content: $justify;
+    -webkit-box-align: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+@mixin center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
+.hide {
+    opacity: 0;
+}
+
+body {
+    font: {
+        family: 'Roboto',
+            sans-serif;
+        size: 1.6rem;
+    }
+
+    height: 100vh;
+    margin:0;
+    background-color: #000;
+    @include d-flex(flex, center, center, null);
+    -webkit-transition: .4s ease;
+    transition: .4s ease;
+}
+
+button {
+    background-color: purple;
+    border: .1rem solid purple;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    padding: 2rem 3rem;
+    overflow: hidden;
+    position: relative;
+    margin: 1rem 0;
+    outline: none;
+    cursor: pointer;
+
+    font: {
+        size: 1.4rem;
+    }
+
+    .circle {
+        position: absolute;
+        width: 10rem;
+        height: 10rem;
+        background-color: #fff;
+        border-radius: 50%;
+        -webkit-transform: translate(-50%, -50%) scale(0);
+        transform: translate(-50%, -50%) scale(0);
+        -webkit-animation: scale .5s ease-out;
+        animation: scale .5s ease-out;
+    }
+}
+
+@-webkit-keyframes scale {
+    to {
+        -webkit-transform: translate(-50%, -50%) scale(3);
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 0;
+    }
+}
+
+@keyframes scale {
+    to {
+        -webkit-transform: translate(-50%, -50%) scale(3);
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 0;
+    }
+}

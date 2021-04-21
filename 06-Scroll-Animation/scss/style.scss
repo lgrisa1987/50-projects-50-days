@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+*{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    background-color: #efedd6;
+    font-family: 'Roboto',
+    sans-serif;
+    font-size: 1.6rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+h1{
+    margin: 1rem;
+}
+
+.box{
+    background-color: steelblue;
+    color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+            width: 40rem;
+            height: 20rem;
+            margin: 1rem;
+            border-radius: 1rem;
+                            -webkit-box-shadow: .2rem .4rem .5rem rgba(#000, .3);
+                                    box-shadow: .2rem .4rem .5rem rgba(#000, .3);
+                                    -webkit-transform: translateX(400%);
+                                            transform: translateX(400%);
+                                            -webkit-transition: -webkit-transform .8s ease;
+                                            transition: -webkit-transform .8s ease;
+                                            transition: transform .8s ease;
+                                            transition: transform .8s ease, -webkit-transform .8s ease;
+            &:nth-of-type(even){
+                -webkit-transform: translateX(-400%);
+                        transform: translateX(-400%);
+            }
+            &.show{
+                 -webkit-transform: translateX(0);
+                         transform: translateX(0);
+            }
+            h2{
+                font-size: 4.5rem;
+            }
+}
+
+.line{
+    position: fixed;
+    background: red;
+    width: 20rem;
+    height: .1rem;
+    right: 0;
+}

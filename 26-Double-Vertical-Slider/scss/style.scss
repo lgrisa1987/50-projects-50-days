@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+@mixin d-flex($display, $justify, $align, $direction) {
+    display: $display;
+    -webkit-box-pack: $justify;
+    -ms-flex-pack: $justify;
+    justify-content: $justify;
+    -webkit-box-align: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.hide {
+    opacity: 0;
+}
+
+body {
+    font: {
+        family: 'Open Sans',
+            sans-serif;
+        size: 1.6rem;
+    }
+ -webkit-transition: opacity .5s linear;
+        transition: opacity .5s linear;
+   height: 100vh;
+}
+
+button{
+    background: white;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 1.6rem;
+    padding: 1.5rem;
+    outline: none;
+    &:hover{
+        color: #222;
+    }
+}
+
+.slider-container{
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    .action-buttons{
+         button{
+             position: absolute;
+             left: 35%;
+             top: 50%;
+             z-index: 100;
+             &.down-button{
+                 -webkit-transform: translateX(-100%);
+                         transform: translateX(-100%);
+                         border-radius: .5rem 0 0 .5rem;
+             }
+             &.up-button{
+                         -webkit-transform: translateY(-100%);
+                                 transform: translateY(-100%);
+                                 border-radius: 0 .5rem .5rem 0;
+             }
+         }
+    }
+}
+.left-slide,.right-slide{
+    height: 100%;
+    position: absolute;
+    top:0;
+    -webkit-transition: -webkit-transform .5s ease-in-out;
+    transition: -webkit-transform .5s ease-in-out;
+    transition: transform .5s ease-in-out;
+    transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+}
+.left-slide{
+    width: 35%;
+    left:0;
+    > div{
+        width: 100%;
+        height: 100%;
+        @include d-flex(flex, center,center, column);
+        color: white;
+    }
+    h1{
+        font:{
+            size: 4rem;
+            weight: 400;
+        }
+        margin:-3rem 0 1rem;
+    }
+}
+.right-slide{
+    left: 35%;
+    width: 65%;
+    > div{
+        background:{
+            repeat: no-repeat;
+            size: cover;
+            position: center;
+        }
+        width: 100%;
+        height: 100%;
+    }
+}

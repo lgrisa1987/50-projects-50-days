@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+@mixin d-flex($display, $justify, $align, $direction) {
+    display: $display;
+    -webkit-box-pack: $justify;
+    -ms-flex-pack: $justify;
+    justify-content: $justify;
+    -webkit-box-align: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+@mixin box-shadow{
+ -webkit-box-shadow: 0 .5rem 1rem rgba(154, 160, 185, 0.05),
+    0 1.5rem 4rem rgba(0, 0, 0, 0.1);
+                box-shadow: 0 .5rem 1rem rgba(154, 160, 185, 0.05),
+    0 1.5rem 4rem rgba(0, 0, 0, 0.1);
+}
+
+@mixin breakpoint($screen){
+    @media(min-width: $screen){
+        @content;
+    }
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.hide {
+    opacity: 0;
+}
+
+body {
+    background-color: #2a2a72;
+    color: white;
+    font: {
+        family: 'Poppins',
+            sans-serif;
+        size: 1.6rem;
+    }
+ -webkit-transition: opacity .5s linear;
+        transition: opacity .5s linear;
+   height: 100vh;
+   @include d-flex(flex, center, center, column);
+   margin: 0;
+   overflow: hidden;
+}
+
+.user{
+    &-form{
+    width: 90%;
+    max-width: 40rem;
+     @include breakpoint(500px){
+         max-width: 80rem;
+     }
+        input{
+            width: 100%;
+            display: block;
+            background: #4c2885;
+            border: none;
+            border-radius: 1rem;
+            color: white;
+            padding: 1.6rem;
+            margin-bottom: 3.2rem;
+            @include box-shadow;
+            font:{
+                family: inherit;
+                size: 1.6rem;
+            }
+        
+        outline: none;
+            &::-webkit-input-placeholder{
+                color: #bbb;
+            }
+            &::-moz-placeholder{
+                color: #bbb;
+            }
+            &:-ms-input-placeholder{
+                color: #bbb;
+            }
+            &::-ms-input-placeholder{
+                color: #bbb;
+            }
+            &::placeholder{
+                color: #bbb;
+            }
+        }
+    }
+    &-info{
+        color: #eee;
+        margin-left: 3.2rem;
+        width: 100%;
+        h2{
+            margin-top: 0;
+        }
+        ul{
+            list-style-type: none;
+            @include d-flex(flex, space-between,null,null);
+            padding: 0;
+            max-width: 40rem;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+        }
+        li{
+            @include d-flex(flex, null,center,null);
+        }
+        strong{
+            font-size: 1.4rem;
+            margin-left: .8rem;
+        }
+    }
+}
+main{
+    width: 90%;
+    max-width: 80rem;
+}
+.card{
+    background-color: #4c2885;
+    border-radius: 2rem;
+    @include box-shadow;
+    -webkit-animation: scaleUp .5s both ease-in-out;
+            animation: scaleUp .5s both ease-in-out;
+    padding: 4.8rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+    @include breakpoint(500px){
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+                -webkit-box-align: initial;
+                    -ms-flex-align: initial;
+                        align-items: initial;
+    }
+    h1{
+        width: 100%;
+        text-align: center;
+        font-size: 1.6rem;
+        @include breakpoint(500px){
+            font-size: 2.5rem;
+        }
+    }
+}
+
+.avatar{
+    border-radius: 50%;
+    border: 1rem solid #2a2a72;
+    width: 15rem;
+    height: 15rem;
+}
+
+.repo{
+    text-decoration: none;
+    color: white;
+    background-color: #2a2a72;
+    font-size: 1.2rem;
+    padding: .4rem .8rem;
+    margin: 0 .8rem .8rem 0;
+    display: inline-block;
+}
+
+@-webkit-keyframes scaleUp{
+    from{
+        -webkit-transform: scale(0);
+                transform: scale(0);
+    }to{
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+}
+
+@keyframes scaleUp{
+    from{
+        -webkit-transform: scale(0);
+                transform: scale(0);
+    }to{
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+}

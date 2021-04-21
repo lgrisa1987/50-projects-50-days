@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap');
+
+
+$line-border-fill: #3498db;
+$line-border-empty: #e0e0e0;
+
+*{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+@mixin d-flex ($value,$value2,$value3){
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: $value;
+            flex-direction: $value;
+    -webkit-box-pack: $value2;
+        -ms-flex-pack: $value2;
+            justify-content: $value2;
+    -webkit-box-align: $value3;
+        -ms-flex-align: $value3;
+            align-items: $value3;
+}
+
+@mixin ie11{
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @content;
+    }
+} 
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    background-color: #f6f7fb;
+    font-family: 'Mulish',
+    sans-serif;
+    font-size: 1.6rem;
+    margin: 0;
+    @include d-flex(row, center, center);
+                    height: 100vh;
+                    overflow: hidden;
+}
+
+.container{
+    text-align: center;
+}
+
+.progress{
+    background-color: $line-border-fill;
+    position: absolute;
+    top: 50%;
+    left: 0;
+-webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    height: .4rem;
+    width: 0%;
+    z-index: -1;
+    -webkit-transition: .4s ease;
+    transition: .4s ease;
+    &-container{
+        @include d-flex(row, space-between, normal);
+        position: relative;
+        margin-bottom: 3rem;
+        max-width: 100%;
+        width: 35rem;
+        &::before{
+            content: '';
+            @extend .progress;
+            background-color: $line-border-empty;
+            width: 100%;
+            -webkit-transition: none;
+            transition: none;
+        }
+    }
+}
+
+.circle{
+    background-color: white;
+    color: #999;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    @include d-flex(row, center, center);
+    border: .3rem solid $line-border-empty;
+     -webkit-transition: .4s ease;
+     transition: .4s ease;
+     @include ie11{
+         position: absolute;
+         -webkit-transform: translateY(-50%);
+                 transform: translateY(-50%);
+        &:nth-child(2) {
+            left: 0%;
+        }
+        &:nth-child(3) {
+            left: 33.3333%;
+        }
+        &:nth-child(4) {
+            left: 66.6666%;
+        }
+         &:last-child{
+             left: 100%;
+         }
+    }
+     
+     &.active{
+         border-color: $line-border-fill;
+     }
+}
+
+.btn{
+    background-color: $line-border-fill;
+    color: white;
+    border: none;
+    border-radius: .6rem;
+    cursor: pointer;
+    padding: .8rem 3rem;
+    margin: .5rem;
+    font-size: 1.4rem;
+    outline: none;
+    &:active{
+        -webkit-transform: scale(.98);
+                transform: scale(.98);
+    }
+    &:disabled{
+        background-color: $line-border-empty;
+        cursor: not-allowed;
+    }
+}

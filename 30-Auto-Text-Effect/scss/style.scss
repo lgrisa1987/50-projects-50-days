@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;700&display=swap');
+
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+@mixin d-flex($display, $justify, $align, $direction) {
+    display: $display;
+    -webkit-box-pack: $justify;
+    -ms-flex-pack: $justify;
+    justify-content: $justify;
+    -webkit-box-align: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+
+
+html {
+    font-size: 62.5%;
+}
+
+.hide {
+    opacity: 0;
+}
+
+body {
+    background: darksalmon;
+    font: {
+        family: 'Oswald',
+            sans-serif;
+        size: 1.6rem;
+    }
+ -webkit-transition: opacity .5s linear;
+        transition: opacity .5s linear;
+   text-align: center;
+   margin: 0;
+   overflow: hidden;
+   @include d-flex(flex, center,center,column);
+   height: 100vh;
+}
+
+div{
+    position: absolute;
+    bottom: 2rem;
+    background: rgba(black, .1);
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+}
+
+input{
+    width: 5rem;
+    padding: .5rem;
+    font-size: inherit;
+    background: darksalmon;
+    border: none;
+    text-align: center;
+    outline: none;
+}

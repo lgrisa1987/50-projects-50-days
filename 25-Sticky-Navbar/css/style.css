@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html {
+    font-size: 62.5%
+}
+
+.hide {
+    opacity: 0
+}
+
+body {
+    font-family: 'Open Sans',
+        sans-serif;
+    font-size: 1.6rem;
+    -webkit-transition: opacity .5s linear;
+    transition: opacity .5s linear;
+    color: #222;
+    padding-bottom: 5rem
+}
+
+.container {
+    max-width: 120rem;
+    margin: 0 auto
+}
+
+.nav {
+    position: fixed;
+    background: #222;
+    top: 0;
+    left: 0;
+    right: 0;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out
+}
+
+.nav .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-between;
+    -ms-flex-pack: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    padding: 2rem 0;
+    -webkit-transition: padding .3s ease-in-out;
+    transition: padding .3s ease-in-out
+}
+
+.nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    list-style: none
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    padding: .7rem 1.5rem;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out
+}
+
+.nav a.current,
+.nav a:hover {
+    color: #c0392b;
+    font-weight: bold
+}
+
+.nav.active {
+    background: white;
+    -webkit-box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.3)
+}
+
+.nav.active .container {
+    padding: 1rem 0
+}
+
+.nav.active a {
+    color: #222
+}
+
+.hero {
+    background-image: url("https://images.pexels.com/photos/450035/pexels-photo-450035.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    height: 100vh;
+    color: white;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    position: relative;
+    margin-bottom: 2rem;
+    z-index: -2
+}
+
+.hero::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: -1
+}
+
+.hero h1 {
+    font-size: 4.6rem;
+    margin: -2rem 0 2rem
+}
+
+.hero p {
+    font-size: 2rem;
+    letter-spacing: .1rem
+}
+
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
+    .hero .container {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%)
+    }
+}
+
+.content h2,
+.content h3 {
+    font-size: 150%;
+    margin: 2rem 0
+}
+
+.content p {
+    color: #555;
+    line-height: 3rem;
+    letter-spacing: .12rem
+}
