@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel ./32-Good-Cheap-Fast-Checkboxes/src -d ./32-Good-Cheap-Fast-Checkboxes/dist --watch"
+    "build": "babel ./33-Notes-App/src -d ./33-Notes-App/dist --watch"
   },
   "keywords": [],
   "author": "",

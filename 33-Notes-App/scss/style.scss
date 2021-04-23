@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+$g: #9ec862;
+$l: #7bdaf3;
+
+@mixin d-flex($display, $justify, $align, $direction) {
+    display: $display;
+    -webkit-box-pack: $justify;
+    -ms-flex-pack: $justify;
+    justify-content: $justify;
+    -webkit-box-align: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+
+
+html {
+    font-size: 62.5%;
+}
+
+.hide {
+    opacity: 0;
+}
+
+body {
+    font: {
+        family: 'Poppins',
+            sans-serif;
+        size: 1.6rem;
+    }
+
+    background: $l;
+    -webkit-transition: opacity .5s linear;
+    transition: opacity .5s linear;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0;
+    padding-top: 4.8rem;
+}
+
+.add {
+    position: fixed;
+    top: 1.6rem;
+    right: 1.6rem;
+    background-color: $g;
+    border: none;
+    border-radius: .3rem;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+.note {
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 1rem .4rem rgba(0, 0, 0, .1);
+    box-shadow: 0 0 1rem .4rem rgba(0, 0, 0, .1);
+    margin: 3rem 2rem;
+    height: 40rem;
+    width: 90%;
+    max-width: 40rem;
+
+    .tools {
+        background-color: $g;
+        @include d-flex(flex, flex-end, center, null);
+        padding: .8rem;
+
+        button {
+            background: transparent;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.6rem;
+            margin-left: .8rem;
+        }
+    }
+
+    textarea {
+        outline: none;
+
+        font: {
+            family: inherit;
+            size: 1.8rem;
+        }
+
+        border: none;
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+    }
+}
+
+.hidden {
+    display: none;
+}
