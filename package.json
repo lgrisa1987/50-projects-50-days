@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel ./31-Password-Generator/src -d ./31-Password-Generator/dist --watch"
+    "build": "babel ./32-Good-Cheap-Fast-Checkboxes/src -d ./32-Good-Cheap-Fast-Checkboxes/dist --watch"
   },
   "keywords": [],
   "author": "",
