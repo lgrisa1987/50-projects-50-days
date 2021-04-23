@@ -52,7 +52,8 @@ body {
         background-color: #8e44ad;
 
         .ball {
-            left: 8rem;
+            -webkit-animation-name: slideOn;
+                    animation-name: slideOn;
         }
     }
 
@@ -83,6 +84,64 @@ body {
     position: absolute;
     top: .3rem;
     left: .3rem;
-    -webkit-transition: .5s ease-in-out;
-    transition: .5s ease-in-out;
+    -webkit-animation: slideOff .3s linear forwards;
+    animation: slideOff .3s linear forwards;
+}
+
+@-webkit-keyframes slideOn {
+    50% {
+        -webkit-transform: translateX(2rem) scale(1.2);
+        transform: translateX(2rem) scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: translateX(4rem) scale(1);
+        transform: translateX(4rem) scale(1);
+    }
+}
+
+@keyframes slideOn {
+    50% {
+        -webkit-transform: translateX(2rem) scale(1.2);
+        transform: translateX(2rem) scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: translateX(4rem) scale(1);
+        transform: translateX(4rem) scale(1);
+    }
+}
+
+@-webkit-keyframes slideOff {
+    0% {
+        -webkit-transform: translateX(4rem) scale(1);
+        transform: translateX(4rem) scale(1);
+    }
+
+    50% {
+        -webkit-transform: translateX(2rem) scale(1.2);
+        transform: translateX(2rem) scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: translateX(0) scale(1);
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes slideOff {
+    0% {
+        -webkit-transform: translateX(4rem) scale(1);
+        transform: translateX(4rem) scale(1);
+    }
+
+    50% {
+        -webkit-transform: translateX(2rem) scale(1.2);
+        transform: translateX(2rem) scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: translateX(0) scale(1);
+        transform: translateX(0) scale(1);
+    }
 }
