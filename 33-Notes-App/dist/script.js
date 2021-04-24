@@ -6,7 +6,7 @@ WebFont.load({
     families: ["Poppins"]
   },
   active: function active() {
-    document.body.classList.remove('hide');
+    document.body.classList.remove("hide");
   }
 });
 
@@ -17,6 +17,14 @@ var select = function select(el) {
   return [].slice.call(document.querySelectorAll(el));
 },
     addBtn = select(".add"),
+    notes = JSON.parse(localStorage.getItem("notes")),
+    updateLS = function updateLS() {
+  var notesText = selectAll("textarea"),
+      notes = notesText.map(function (note) {
+    return note.value;
+  });
+  localStorage.setItem("notes", JSON.stringify(notes));
+},
     addNewNote = function addNewNote(text) {
   var note = document.createElement('div');
   note.classList.add("note");
@@ -26,14 +34,28 @@ var select = function select(el) {
       deleteBtn = note.querySelector(".delete"),
       main = note.querySelector(".main"),
       textArea = note.querySelector("textarea");
+  textArea.value = text;
+  main.innerHTML = marked(text);
   deleteBtn.addEventListener("click", function () {
     document.body.removeChild(note);
+    updateLS();
   });
   editBtn.addEventListener("click", function () {
     main.classList.toggle("hidden");
     textArea.classList.toggle("hidden");
   });
+  textArea.addEventListener("input", function (e) {
+    var value = e.target.value;
+    main.innerHTML = marked(value);
+    updateLS();
+  });
 };
 
-addBtn.addEventListener("click", addNewNote.bind(null, false));
+(function () {
+  notes && notes.forEach(function (note) {
+    return addNewNote(note);
+  });
+})();
+
+addBtn.addEventListener("click", addNewNote.bind(null, ""));
 /*  */

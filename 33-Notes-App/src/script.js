@@ -6,13 +6,19 @@
          ]
      },
      active: function () {
-         document.body.classList.remove('hide');
+         document.body.classList.remove("hide");
      }
  });
 
  const select = el => (document.querySelector(el)),
      selectAll = el => [].slice.call(document.querySelectorAll(el)),
      addBtn = select(".add"),
+     notes = JSON.parse(localStorage.getItem("notes")),
+     updateLS = () => {
+         const notesText = selectAll("textarea"),
+             notes = notesText.map(note => note.value);
+         localStorage.setItem("notes", JSON.stringify(notes));
+     },
      addNewNote = (text) => {
          const note = document.createElement('div');
          note.classList.add("note");
@@ -35,17 +41,32 @@
              main = note.querySelector(".main"),
              textArea = note.querySelector("textarea");
 
+         textArea.value = text;
+         main.innerHTML = marked(text);
+
 
          deleteBtn.addEventListener("click", () => {
              document.body.removeChild(note);
+             updateLS();
          })
          editBtn.addEventListener("click", () => {
              main.classList.toggle("hidden");
              textArea.classList.toggle("hidden");
-         })
-     }
+         });
+         textArea.addEventListener("input", e => {
+             const {
+                 value
+             } = e.target;
+             main.innerHTML = marked(value);
+             updateLS();
+         });
 
- addBtn.addEventListener("click", addNewNote.bind(null, false));
+     };
+ (() => {
+     notes && notes.forEach(note => addNewNote(note));
+ })();
+
+ addBtn.addEventListener("click", addNewNote.bind(null, ""));
 
 
  /*  */

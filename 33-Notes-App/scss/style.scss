@@ -4,6 +4,7 @@
 * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    outline: none;
 }
 
 $g: #9ec862;
@@ -88,20 +89,29 @@ body {
         }
     }
 
+    .main,
     textarea {
-        outline: none;
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
 
         font: {
             family: inherit;
             size: 1.8rem;
         }
+    }
 
+    textarea {
+        outline: none;
+        height: calc(100% - 4rem);
         border: none;
-        width: 100%;
-        height: 100%;
-        padding: 2rem;
+    }
+
+    .main p {
+        margin: 0;
     }
 }
+
 
 .hidden {
     display: none;
