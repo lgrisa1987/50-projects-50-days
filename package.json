@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel ./33-Notes-App/src -d ./33-Notes-App/dist --watch"
+    "build": "babel ./34-Animated-Countdown/src -d ./34-Animated-Countdown/dist --watch"
   },
   "keywords": [],
   "author": "",
