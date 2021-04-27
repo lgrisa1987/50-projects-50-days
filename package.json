@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel ./35-Image-Carousel/src -d ./35-Image-Carousel/dist --watch"
+    "build": "babel ./36-Hoverboard/src -d ./36-Hoverboard/dist --watch"
   },
   "keywords": [],
   "author": "",
