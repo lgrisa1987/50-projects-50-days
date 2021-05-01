@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel ./37-Pokedex/src -d ./37-Pokedex/dist --watch"
+    "build": "babel ./38-Mobile-Tab-Navigation/src -d ./38-Mobile-Tab-Navigation/dist --watch"
   },
   "keywords": [],
   "author": "",
