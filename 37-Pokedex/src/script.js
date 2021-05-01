@@ -25,23 +25,36 @@
          poison: '#98d7a5',
          bug: '#f8d5a3',
          dragon: '#97b3e6',
+         ice: '#96D9D6',
          psychic: '#eaeda1',
          flying: '#F5F5F5',
          fighting: '#E6E0D4',
          normal: '#F5F5F5'
      },
+     mainTypes = Object.keys(colors),
      createPokemonCard = pokemon => {
-         const pokemonEl = document.createElement("div"),
+         const {
+             id,
+             name,
+             types
+         } = pokemon,
+         pokeTypes = types.map(type => type.type.name)[0],
+             type = mainTypes.filter(index => index === pokeTypes),
+             nameUppercase = name[0].toUpperCase() + name.slice(1),
+             /* idNumber = id.toString().padStart(3, '0') */
+             idNumber = id.toString().length === 1 ? ("00" + id) : id.toString().length === 2 ? ("0" + id) : id,
+             pokemonEl = document.createElement("div"),
              pokemonInnerHTML = `<div class="img-container">
-                <img src="https://pokeres.bastionbot.org/images/pokemon/1.png" alt="">
+                <img src="https://pokeres.bastionbot.org/images/pokemon/${id}.png" alt="">
             </div>
             <div class="info">
-                <span class="number">#001</span>
-                <h3 class="name">Bulbasaur</h3>
-                <small class="type">Type: <span>grass</span></small>
+                <span class="number">#${idNumber}</span>
+                <h3 class="name">${nameUppercase}</h3>
+                <small class="type">Type: <span>${pokeTypes}</span></small>
             </div>`;
          pokemonEl.className = "pokemon";
          pokemonEl.innerHTML = pokemonInnerHTML;
+         pokemonEl.style.background = `${colors[type]}`;
          pokeContainer.appendChild(pokemonEl);
      },
      /* getPokemon = async (id) => {
@@ -60,13 +73,12 @@
          xhr.addEventListener("readystatechange", function () {
              if (this.readyState === 4 && this.status === 200) data = JSON.parse(this.responseText), createPokemonCard(data);
          });
-         xhr.open("GET", url, true);
+         xhr.open("GET", url, false);
          xhr.setRequestHeader('Accept', 'application/json');
          xhr.send();
      },
      fetchPokemons = () => {
          for (let i = 1; i < pokemonCount; i++) getPokemon(i);
-         console.log("ready");
      }
 
  fetchPokemons();

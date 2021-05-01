@@ -32,6 +32,6 @@
          index === 0 ? idx-- : idx++;
          changeImg();
          clearInterval(interval);
-         //interval = setInterval(run, 2000);
+         interval = setInterval(run, 2000);
      })
  })
