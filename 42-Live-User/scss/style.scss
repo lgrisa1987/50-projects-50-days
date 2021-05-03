@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+}
+
+
+@mixin d-flex($display, $justify, $align, $direction) {
+    display: $display;
+    -webkit-box-pack: $justify;
+    -ms-flex-pack: $justify;
+    justify-content: $justify;
+    -webkit-box-align: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+@mixin ie11 {
+
+    @media all and (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
+        @content;
+    }
+}
+
+@mixin breakpoint($screen-size) {
+    @media(max-width: $screen-size) {
+        @content;
+    }
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
+.hide {
+    opacity: 0;
+}
+
+body {
+    background: #f8f9fd;
+
+    font: {
+        family: 'Roboto', sans-serif;
+        size: 1.6rem;
+    }
+
+    height: 100vh;
+    @include d-flex(flex, center, center, null);
+    -webkit-transition: opacity .5s linear;
+    transition: opacity .5s linear;
+    margin:0;
+}
+
+.container {
+    border-radius: .5rem;
+    -webkit-box-shadow: .3rem .3rem 1rem rgba(#000, .2);
+    box-shadow: .3rem .3rem 1rem rgba(#000, .2);
+    overflow: hidden;
+    width: 30rem;
+}
+
+.title {
+    margin: 0;
+}
+
+.subtitle {
+    display: inline-block;
+    margin: .5rem 0 2rem;
+    opacity: .8;
+}
+
+.header {
+    background-color: #3e57db;
+    color: #fff;
+    padding: 3rem 2rem;
+
+    input {
+        background-color: rgba(#000, 0.3);
+        border: none;
+        border-radius: 5rem;
+        color: #fff;
+        font-size: 1.4rem;
+        padding: 1rem 1.5rem;
+        width: 100%;
+    }
+}
+
+.user {
+    &-list {
+        background: #fff;
+        list-style-type: none;
+        max-height: 40rem;
+        overflow-y: auto;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            padding: 2rem;
+
+            &:not(:last-of-type) {
+                border-bottom: .1rem solid #eee;
+            }
+
+            &.hide {
+                display: none;
+            }
+        }
+
+        img {
+            border-radius: 50%;
+            width: 5rem;
+            height: 5rem;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+    }
+
+    &-info {
+        margin-left: 1rem;
+
+        h4 {
+            margin: 0 0 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+    }
+}
