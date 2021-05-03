@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel ./38-Mobile-Tab-Navigation/src -d ./38-Mobile-Tab-Navigation/dist --watch"
+    "build": "babel ./40-3D-Background-Boxes/src -d ./40-3D-Background-Boxes/dist --watch"
   },
   "keywords": [],
   "author": "",
