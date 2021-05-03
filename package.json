@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel ./40-3D-Background-Boxes/src -d ./40-3D-Background-Boxes/dist --watch"
+    "build": "babel ./41-Verify-Account/src -d ./41-Verify-Account/dist --watch"
   },
   "keywords": [],
   "author": "",
