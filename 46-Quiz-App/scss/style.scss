@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+}
+
+
+@mixin d-flex($display, $justify, $align, $direction) {
+    display: $display;
+    -webkit-box-pack: $justify;
+    -ms-flex-pack: $justify;
+    justify-content: $justify;
+    -webkit-box-align: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+@mixin ie11 {
+
+    @media all and (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
+        @content;
+    }
+}
+
+@mixin breakpoint($screen-size) {
+    @media(max-width: $screen-size) {
+        @content;
+    }
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
+.hide {
+    opacity: 0;
+}
+
+body {
+    background: #b8c6db;
+    background-image: linear-gradient(315deg, #b8c6db, #f5f7fa);
+
+    font: {
+        family: 'Poppins', sans-serif;
+        size: 1.6rem;
+    }
+
+    overflow: hidden;
+    margin:0;
+    height: 100vh;
+    @include d-flex(flex, center, center, null);
+    -webkit-transition: opacity .5s linear;
+    transition: opacity .5s linear;
+}
+
+.quiz {
+    &-container {
+        background-color: #fff;
+        border-radius: 1rem;
+        -webkit-box-shadow: 0 0 1rem .2rem rgba(100, 100, 100, .1);
+        box-shadow: 0 0 1rem .2rem rgba(100, 100, 100, .1);
+        width: 60rem;
+        overflow: hidden;
+    }
+
+    &-header {
+        padding: 6.4rem;
+    }
+}
+
+h2 {
+    padding: 1.6rem;
+    text-align: center;
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+        font-size: 1.8rem;
+        margin: 1.6rem 0;
+
+        label {
+            cursor: pointer;
+        }
+    }
+}
+
+button {
+    background-color: #8e44ad;
+    color: #fff;
+    border: none;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+
+    font: {
+        size: 1.7rem;
+        family: inherit;
+    }
+
+    padding: 1.3rem;
+
+    &:hover {
+        background-color: #732d91;
+    }
+
+    &:focus {
+        background-color: #5e3370;
+    }
+}

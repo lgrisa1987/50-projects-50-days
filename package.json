@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel ./43-Feedback-UI-Design/src -d ./43-Feedback-UI-Design/dist --watch"
+    "build": "babel ./47-Testimonial-Box-Switcher/src -d ./47-Testimonial-Box-Switcher/dist --watch"
   },
   "keywords": [],
   "author": "",

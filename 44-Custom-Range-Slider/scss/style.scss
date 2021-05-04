@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+}
+
+
+@mixin d-flex($display, $justify, $align, $direction) {
+    display: $display;
+    -webkit-box-pack: $justify;
+    -ms-flex-pack: $justify;
+    justify-content: $justify;
+    -webkit-box-align: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+@mixin ie11 {
+
+    @media all and (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
+        @content;
+    }
+}
+
+@mixin breakpoint($screen-size) {
+    @media(max-width: $screen-size) {
+        @content;
+    }
+}
+
+
+
+html {
+    font-size: 62.5%;
+}
+
+.hide {
+    opacity: 0;
+}
+
+body {
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+    font: {
+        family: 'Lato', sans-serif;
+        size: 1.6rem;
+    }
+
+    height: 100vh;
+    @include d-flex(flex, center, center, column);
+    -webkit-transition: opacity .5s linear;
+    transition: opacity .5s linear;
+    margin:0;
+}
+
+h2 {
+    position: absolute;
+    top: 1rem;
+}
+
+.range-container {
+    position: relative;
+}
+
+input[type="range"] {
+    width: 30rem;
+    margin: 1.8rem 0;
+    -webkit-appearance: none;
+    background: transparent;
+
+    &::-webkit-slider-runnable-track {
+        background: purple;
+        border-radius: .4rem;
+        width: 100%;
+        height: 1rem;
+        cursor: pointer;
+    }
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        background: #fff;
+        width: 2.4rem;
+        height: 2.4rem;
+        border-radius: 50%;
+        border: .1rem solid purple;
+        margin-top: -.7rem;
+        cursor: pointer;
+    }
+
+    &::-moz-range-track {
+        background: purple;
+        border-radius: .4rem;
+        width: 100%;
+        height: 1rem;
+        cursor: pointer;
+    }
+
+    &::-moz-range-thumb {
+        -webkit-appearance: none;
+        background: #fff;
+        width: 2.4rem;
+        height: 2.4rem;
+        border-radius: 50%;
+        border: .1rem solid purple;
+        margin-top: -.7rem;
+        cursor: pointer;
+    }
+
+    &::-ms-track {
+        background: purple;
+        border-radius: .4rem;
+        width: 100%;
+        height: 1rem;
+        cursor: pointer;
+    }
+
+    &::-ms-thumb {
+        -webkit-appearance: none;
+        background: #fff;
+        width: 2.4rem;
+        height: 2.4rem;
+        border-radius: 50%;
+        border: .1rem solid purple;
+        margin-top: -.7rem;
+        cursor: pointer;
+    }
+
+    &+label {
+        background-color: #fff;
+        position: absolute;
+        top: -2.5rem;
+        left: 11rem;
+        width: 8rem;
+        padding: .5rem 0;
+        text-align: center;
+        border-radius: .4rem;
+        -webkit-box-shadow: 0 0 .5rem rgba(0, 0, 0, .3);
+        box-shadow: 0 0 .5rem rgba(0, 0, 0, .3);
+    }
+}
