@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel ./41-Verify-Account/src -d ./41-Verify-Account/dist --watch"
+    "build": "babel ./43-Feedback-UI-Design/src -d ./43-Feedback-UI-Design/dist --watch"
   },
   "keywords": [],
   "author": "",
