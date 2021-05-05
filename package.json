@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel ./47-Testimonial-Box-Switcher/src -d ./47-Testimonial-Box-Switcher/dist --watch"
+    "build": "babel ./49-Todo-List/src -d ./49-Todo-List/dist --watch"
   },
   "keywords": [],
   "author": "",

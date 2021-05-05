@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+}
+
+
+@mixin d-flex($display, $justify, $align, $direction) {
+    display: $display;
+    -webkit-box-pack: $justify;
+    -ms-flex-pack: $justify;
+    justify-content: $justify;
+    -webkit-box-align: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+@mixin ie11 {
+
+    @media all and (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
+        @content;
+    }
+}
+
+@mixin breakpoint($screen-size) {
+    @media(max-width: $screen-size) {
+        @content;
+    }
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
+.hide {
+    opacity: 0;
+}
+
+body {
+    background: #f4f4f4;
+
+    font: {
+        family: 'Montserrat',
+            sans-serif;
+        size: 1.6rem;
+    }
+
+    margin:0;
+    min-height: 100vh;
+    @include d-flex(flex, center, center, column);
+    -webkit-transition: opacity .5s linear;
+    transition: opacity .5s linear;
+}
+
+.title {
+    margin: 2rem 0;
+}
+
+.container {
+    @include d-flex(flex, center, center, null);
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    max-width: 100rem;
+
+    img {
+        -o-object-fit: cover;
+        object-fit: cover;
+        margin: 1rem;
+        width: 30rem;
+        height: 30rem;
+        max-width: 100%;
+    }
+}
