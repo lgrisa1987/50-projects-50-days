@@ -76,6 +76,14 @@ body {
         max-width: 76.8rem;
         position: relative;
 
+        @include ie11 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+        }
+
         @include breakpoint(768px) {
             padding: 2rem 3rem;
         }
@@ -133,7 +141,7 @@ body {
     -webkit-animation: grow 10s linear infinite;
     animation: grow 10s linear infinite;
     -webkit-transform-origin: left;
-            transform-origin: left;
+    transform-origin: left;
 }
 
 
